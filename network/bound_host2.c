@@ -48,6 +48,7 @@ void error_handling(char *message)
 	exit(1);
 }
 //helloworld
+//hello..
 /*
 root@my_linux:/home/swyoon/tcpip# gcc bound_host2.c -o host2
 root@my_linux:/home/swyoon/tcpip# ./host2
