@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <algorithm>
 
@@ -6,45 +5,44 @@ using namespace std;
 
 int main() {
 	int T, N;
-	vector<int> v;
+	int C = 0;
 
 	cin >> T;
 
 	while (T--) {
-
+		C++;
 		int cnt = 0;
 		cin >> N;
+		int arr[100];
 
-		while (N--) {
-			int t;
-			cin >> t;
-			v.push_back(t);
+		for (int i = 0; i < N; i++) {
+			cin >> arr[i];
 		}
 
-		make_heap(v.begin(), v.end());
-		sort_heap(v.begin(), v.end());
+		sort(arr, arr+N);
 
-		while(v.size()){
-			int max = v.back();
+		int idx = 0;
+		for (int i = N - 1; i >= 0; i--) {
+			int max = arr[i];
 
 			int tmp = 50 / max;
 			if (50 % max != 0) {
 				tmp++;
 			}
-			//50 = 1, 51 = 0 + 1
-			//49 = 1 + 1 , 25 = 2 + 0
 
-			if (v.size() >= tmp) {
+			if (i - idx + 1 >= tmp) {
 				tmp--;
 				while (tmp--) {
-					v.erase(v.begin());
+					idx++;
 				}
 				cnt++;
-				v.pop_back();
+			}
+			else {
+				break;
 			}
 		}
 
-		cout << cnt << endl;
+		cout << "#" << C << " " << cnt << endl;
 	}
 
 }
