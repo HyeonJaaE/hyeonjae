@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string.h>
-#include<fstream>
+
 using namespace std;
 
 int arr[100][100];
@@ -51,19 +51,14 @@ int main() {
 	int T = 10;
 	int Tcnt = 0;
 
-	ifstream fin;
-	fin.open("input.txt");
-	ofstream fout("output.txt");
-
 	while (T--) {
-
-		fin >> Tcnt;
+		cin >> Tcnt;
 		int ans = 0;
 		memset(arr, 0, sizeof(arr));
 
 		for (int r = 0; r < 100; r++) {
 			for (int c = 0; c < 100; c++) {
-				fin >> arr[r][c];
+				cin >> arr[r][c];
 			}
 		}
 
@@ -76,11 +71,8 @@ int main() {
 			}
 		}
 
-		fout << "#" << Tcnt << " " << ans << endl;
+		cout << "#" << Tcnt << " " << ans << endl;
 	}
-
-	fin.close();
-	fout.close();
 
 	return 0;
 }
