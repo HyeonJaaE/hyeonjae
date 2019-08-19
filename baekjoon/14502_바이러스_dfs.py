@@ -46,7 +46,7 @@ def dfs(li, i, d):
                     bfs(ttmpli, r, c)
 
         cnt = 0
-        global answer, max
+        global max
 
         # 바이러스가 퍼지지 않은 지역 수 확인
         for r in range(0, N):
